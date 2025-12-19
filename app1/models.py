@@ -42,3 +42,14 @@ class Adopcion(models.Model):
     y relaciones indicados en el examen
     =========================================================
 """
+
+# Creacion de clase PostMascota 
+class PostMascota(models.Model):
+    mascota = models.ForeignKey(Mascota, on_delete=models.CASCADE,related_name='posts')
+    titulo = models.CharField(max_length=200)
+    descripcion= models.TextField()
+    fecha= models.DateField()
+    foto= models.ImageField(upload_to='post/')
+
+    def __str__(self):
+        return f"{self.titulo} - {self.mascota.nombre}"

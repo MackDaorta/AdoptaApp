@@ -14,7 +14,10 @@ urlpatterns = [
     path('detalleMascota/<int:idMascota>',views.detalleMascota,name='detalleMascota'),
     path('cerrarSesion',views.cerrarSesion,name='cerrarSesion'),
 
-    """
+    
+]
+
+"""
     =========================================================
     SECCIÓN: RUTEAR LA VISTA POSTS_MASCOTA
     ---------------------------------------------------------
@@ -22,6 +25,3 @@ urlpatterns = [
     en cuenta los arguementos requeridos.
     =========================================================
     """
-
-
-]
