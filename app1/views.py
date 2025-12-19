@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from django.http import HttpResponseRedirect, HttpResponse, JsonResponse, FileResponse
 from django.urls import reverse
@@ -7,7 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login,logout, authenticate
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import TipoMascotaForm
+#Importacion de PostMascotaForm
+from .forms import TipoMascotaForm, PostMascotaForm
 
 # Create your views here.
 def ingreso(request):
@@ -191,3 +192,28 @@ def cerrarSesion(request):
     argumento del id adecuadamente.
     =========================================================
 """
+
+#seguridad
+@login_required(login_url='/')
+def posts_mascota(request, mascota_id):
+    mascota= get_object_or_404(Mascota, id=mascota_id)
+
+    if request.method=='POST':
+        form=PostMascotaForm(request.POST,request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.mascota=mascota
+            post.save()
+
+            return HttpResponseRedirect(reverse('app1:posts_mascota', args=[mascota.id]))
+    else:
+        form= PostMascotaForm()
+    
+    posts= PostMascota.objects.filter(mascota=mascota).order_by('-fecha')
+
+    context={
+        'mascota': mascota,
+        'form': form,
+        'posts': posts
+    }
+    return render(request, 'posts_mascota.html',context)
