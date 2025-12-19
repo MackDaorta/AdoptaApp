@@ -64,7 +64,7 @@
       {% endif %}
 
       <!-- 🔽 INSERTAR AQUÍ EL BOTÓN DE ACCESO A LA GALERÍA 🔽 -->
-       <a href="#" class="btn btn-primary mt-3">
+       <a href="{% url 'app1:posts_mascota' mascota.id %}" class="btn btn-primary mt-3">
         <i class="fa-solid fa-image me-1"></i> Ver galería de momentos
       </a>
 

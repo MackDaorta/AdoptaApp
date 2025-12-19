@@ -72,7 +72,7 @@ class PostMascotaForm(forms.ModelForm):
                 'class': 'form-control',
                 'type': 'date'
             }),
-            'foto': forms.ClearableFileInput(attrs={
+            'foto': forms.FileInput(attrs={
                 'class': 'form-control'
             }),
         }
