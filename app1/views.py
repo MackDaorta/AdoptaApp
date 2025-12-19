@@ -197,6 +197,8 @@ def cerrarSesion(request):
 @login_required(login_url='/')
 def posts_mascota(request, mascota_id):
     mascota= get_object_or_404(Mascota, id=mascota_id)
+    tipos = TipoMascota.objects.all()
+    
 
     if request.method=='POST':
         form=PostMascotaForm(request.POST,request.FILES)
@@ -214,6 +216,7 @@ def posts_mascota(request, mascota_id):
     context={
         'mascota': mascota,
         'form': form,
-        'posts': posts
+        'posts': posts,
+        'tipos': tipos
     }
     return render(request, 'posts_mascota.html',context)

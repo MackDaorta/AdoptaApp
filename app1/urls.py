@@ -13,7 +13,8 @@ urlpatterns = [
     path('mascotasxtipo/<int:idTipo>',views.mascotasxtipo,name='mascotasxtipo'),
     path('detalleMascota/<int:idMascota>',views.detalleMascota,name='detalleMascota'),
     path('cerrarSesion',views.cerrarSesion,name='cerrarSesion'),
-
+    #Ruta de la galeria para las mascotas
+    path('mascota/<int:mascota_id>/posts/',views.posts_mascota, name='posts_mascota'),
     
 ]
 
