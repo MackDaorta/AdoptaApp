@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-4">
+
+    <!-- =========================================================
+         SECCIÓN: TÍTULO Y DATOS PRINCIPALES DE LA MASCOTA
+         ---------------------------------------------------------
+         TODO: Mostrar aquí el nombre de la mascota usando
+               la variable de contexto 'mascota'.
+         ========================================================= -->
+    <h2>Galería de <!-- COMPLETAR: nombre de la mascota --></h2>
+
+    <hr>
+
+    <!-- =========================================================
+         SECCIÓN: LISTA / GALERÍA DE POSTS DE LA MASCOTA
+         ---------------------------------------------------------
+         CONTEXTO:
+         - La vista envía una variable 'posts' con la lista de
+           publicaciones (PostMascota) asociadas a esta mascota.
+
+         OBJETIVO:
+         - Recorrer 'posts' con un bucle for y mostrar cada post
+           en una tarjeta (card) o bloque simple.
+         
+         Dentro del for, mostrar:
+              - Título del post
+              - Fecha del post
+              - Descripción del post
+              - Imagen del post (campo foto)
+
+         REVISAR VISTA DE DETALLE DE MASCOTA COMO REFERENCIA
+         ========================================================= -->
+
+    <div class="row">
+
+    </div>
+
+
+    <!-- =========================================================
+         SECCIÓN: FORMULARIO PARA CREAR NUEVOS POSTS
+         ---------------------------------------------------------
+         CONTEXTO:
+         - La vista, en la siguiente pregunta del examen, enviará
+           un formulario 'form' basado en PostMascotaForm.
+
+         OBJETIVO:
+         - Mostrar el formulario dentro de la plantilla usando
+           sintaxis de Django.
+         ========================================================= -->
+
+    <hr class="mt-4 mb-3">
+
+    <h3>Registrar nuevo momento / publicación</h3>
+    <!-- EJEMPLO COMENTADO (para que el alumno lo tome de guía):
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+
+
+
+
+        <button type="submit" class="btn btn-primary mt-2">Guardar publicación</button>
+    </form>
+
+    -->
+
+    <!-- =========================================================
+         SECCIÓN: BOTÓN PARA VOLVER
+         ---------------------------------------------------------
+         TODO: Opcionalmente, los alumnos pueden agregar un enlace
+               para regresar a la ruta home de la app1
+         ========================================================= -->
+
+    <a href="#" class="btn btn-secondary">Volver a inicio</a>
+
+
+</div>
+{% endblock %}
